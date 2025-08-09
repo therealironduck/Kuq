@@ -1,7 +1,20 @@
 package database
 
-import "fmt"
+import (
+	"github.com/therealironduck/kuq/internal/model"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
+)
 
-func Test() {
-	fmt.Println("Hello from DB")
+const fileName = "kuq.db"
+
+func New(path string) (db *gorm.DB, err error) {
+	db, err = gorm.Open(sqlite.Open(path), &gorm.Config{})
+	if err != nil {
+		return
+	}
+
+	db.AutoMigrate(&model.Credential{})
+
+	return
 }

@@ -23,9 +23,9 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(packageAddCmd)
+	rootCmd.AddCommand(credentialAddCmd)
 
-	rootCmd.PersistentFlags().StringVarP(&flagWorkspace, "workspace", "w", ".", "The workspace where Kuq should store all data")
+	rootCmd.PersistentFlags().StringVarP(&flagWorkspace, "workspace", "w", ".", "tbd")
 }
 
 func Execute() {

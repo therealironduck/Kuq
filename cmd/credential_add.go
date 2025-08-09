@@ -1,0 +1,27 @@
+package cmd
+
+import (
+	"fmt"
+
+	"github.com/spf13/cobra"
+	"github.com/therealironduck/kuq/internal/credential"
+)
+
+var credentialAddCmd = &cobra.Command{
+	Use:   "credential:add [name] [sshKey]",
+	Short: "Add a new ssh key to Kuq",
+	Long:  `Add a new ssh key to Kuq. Leave arguments empty for interactive screen`,
+	Args:  cobra.RangeArgs(0, 2),
+	Run: func(_ *cobra.Command, args []string) {
+		if len(args) < 2 {
+			// TODO: TUI
+			fmt.Printf("TODO: Integrate interactive TUI")
+			return
+		}
+
+		name := args[0]
+		sshKey := args[1]
+
+		credential.Add(name, sshKey)
+	},
+}
