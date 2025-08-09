@@ -1,8 +1,8 @@
-run cmd:
-    go run ./cmd/kuq/main.go {{ cmd }}
+run *cmd:
+    go run ./main.go {{ cmd }}
 
 build:
-    go build -o bin/kuq ./cmd/kuq/main.go
+    go build -o bin/kuq ./main.go
 
 test:
     go test -v ./...
