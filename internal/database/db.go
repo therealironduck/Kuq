@@ -14,7 +14,7 @@ func New(path string) (db *gorm.DB, err error) {
 		return
 	}
 
-	db.AutoMigrate(&model.Credential{})
+	err = db.AutoMigrate(&model.Credential{})
 
 	return
 }

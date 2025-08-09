@@ -11,6 +11,13 @@ func ResolveWorkspacePath(relative string) (path string, err error) {
 	return
 }
 
-func GetDatabasePath(workspacePath string) string {
-	return filepath.Join(workspacePath, fileName)
+func GetDatabasePath(relative string) (path string, err error) {
+	workspacePath, err := ResolveWorkspacePath(relative)
+	if err != nil {
+		return
+	}
+
+	path = filepath.Join(workspacePath, fileName)
+
+	return
 }
