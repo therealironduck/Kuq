@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Credential struct {
 	gorm.Model
-	Name   string
+	Name   string `gorm:"uniqueIndex"`
 	SSHKey string
 }
